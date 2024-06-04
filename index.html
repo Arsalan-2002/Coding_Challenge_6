@@ -1,3 +1,5 @@
+// Comments added
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +27,7 @@
                 this.color = color;
             }
 
+            // I have drawn a method to render the ball on the canvas
             draw(ctx) {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
@@ -33,8 +36,9 @@
                 ctx.closePath();
             }
 
+            // Overhere I have used the Update method to move the ball and handle collision detection
             update(canvas) {
-                
+                // In the below line I have checked for collision with canvas edges and reverse direction if necessary
                 if ((this.x + this.radius > canvas.width) || (this.x - this.radius < 0)) {
                     this.dx = -this.dx;
                 }
@@ -42,24 +46,27 @@
                     this.dy = -this.dy;
                 }
 
-                
+                // Updated the ball position
                 this.x += this.dx;
                 this.y += this.dy;
             }
         }
 
-        
+        // I extracted the canvas element and context
         const canvas = document.getElementById('ballCanvas');
         const ctx = canvas.getContext('2d');
 
+        // Created a new Ball object with the test data
         const ball = new Ball(200, 160, 20, 2, 2, 'red');
 
+        // Animation loop using setInterval
         function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); 
-            ball.draw(ctx); 
-            ball.update(canvas); 
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+            ball.draw(ctx); // Draw the ball
+            ball.update(canvas); // Update the ball's position
         }
 
+        // I ran the animation loop every 16 millisecond, this approximately translates to 60 frames per second
         setInterval(animate, 16);
     </script>
 </body>
