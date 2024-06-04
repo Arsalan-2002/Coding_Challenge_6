@@ -25,7 +25,6 @@
                 this.color = color;
             }
 
-            
             draw(ctx) {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
@@ -34,7 +33,6 @@
                 ctx.closePath();
             }
 
-            
             update(canvas) {
                 
                 if ((this.x + this.radius > canvas.width) || (this.x - this.radius < 0)) {
@@ -44,11 +42,13 @@
                     this.dy = -this.dy;
                 }
 
+                
                 this.x += this.dx;
                 this.y += this.dy;
             }
         }
 
+        
         const canvas = document.getElementById('ballCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -58,10 +58,9 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height); 
             ball.draw(ctx); 
             ball.update(canvas); 
-            requestAnimationFrame(animate); 
         }
 
-        animate(); 
+        setInterval(animate, 16);
     </script>
 </body>
 </html>
