@@ -15,7 +15,20 @@
 <body>
     <canvas id="ballCanvas" width="800" height="600"></canvas>
     <script>
-        // JavaScript code will go here
+        // Ball Constructor
+        class Ball {
+            constructor(x, y, radius, dx, dy, color) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.dx = dx;
+                this.dy = dy;
+                this.color = color;
+            }
+        }
+
+        const testBall = new Ball(200, 160, 20, 2, 2, 'red');
+        console.log(testBall); 
     </script>
 </body>
 </html>
